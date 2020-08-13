@@ -1,4 +1,5 @@
-print('hi!')
+from datetime import datetime
+
 list_of_num = input("Введите целые числа через пробел ").split()
 
 arr_of_numbers = list(map(int, list_of_num))
@@ -19,6 +20,14 @@ int_user_power = int(user_power)
 
 for num in arr_of_numbers:
     power(num, int_user_power)
+
+def timeit(func):
+    def wrapper(*args):
+        start = datetime.now()
+        result = func(*args)
+        print("На вычисление ушло: ", datetime.now() - start)
+        return result
+    return wrapper
 
 #TODO
 # - написать функцию, которая на вход принимает список из целых чисел, и возвращает только чётные/нечётные/простые числа (выбор производится передачей дополнительного аргумента)
