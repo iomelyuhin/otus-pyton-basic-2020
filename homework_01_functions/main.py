@@ -19,10 +19,8 @@ def power(a, p=2):
     res = a ** p
     if p == 2:
         print("Квадрат числа", a, "равен:", res)
-        return res
     else:
         print(a, "в степени", p, "равно:", res)
-        return res
 
 
 current_num = list(map(power, arr_of_numbers))
@@ -39,7 +37,6 @@ for num in arr_of_numbers:
 userswitchnum = input("Выберите четные(ч) или нечётные(н) числа? ")
 
 
-@timeit
 def return_numbers( numbers, userswitchnum ):
     if userswitchnum == "ч":
         odd = list(filter(lambda x: x % 2 == 0, numbers))
