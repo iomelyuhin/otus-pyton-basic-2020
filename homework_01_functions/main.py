@@ -15,35 +15,37 @@ def timeit(func):
 
 
 @timeit
-def power(a, p=2):
-    res = a ** p
-    if p == 2:
-        print("Квадрат числа", a, "равен:", res)
-    else:
-        print(a, "в степени", p, "равно:", res)
+def power(arr_nums, p=2):
+    for num in arr_nums:
+        res = num ** p
+
+        if p == 2:
+            print("Квадрат числа", num, "равен:", res)
+        else:
+            print(num, "в степени", p, "равно:", res)
+    return res
 
 
-current_num = list(map(power, arr_of_numbers))
+current_num = power(arr_of_numbers)
 
 user_power = input("В какую степень хочешь возвести свои числа? ")
 
 int_user_power = int(user_power)
 
-
-for num in arr_of_numbers:
-    power(num, int_user_power)
-
+power(arr_of_numbers, int_user_power)
 
 userswitchnum = input("Выберите четные(ч) или нечётные(н) числа? ")
 
 
-def return_numbers( numbers, userswitchnum ):
+def return_numbers(numbers, userswitchnum):
     if userswitchnum == "ч":
         odd = list(filter(lambda x: x % 2 == 0, numbers))
         print("Четные числа из вашего списка: ", odd)
     elif userswitchnum == "н":
         even = list(filter(lambda x: x % 2 != 0, numbers))
         print("Нетные числа из вашего списка: ", even)
+    else:
+        print('Вы не выбрали тип числа, вот весь список:', numbers)
 
 
 return_numbers(arr_of_numbers, userswitchnum)
