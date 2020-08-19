@@ -16,6 +16,8 @@ def timeit(func):
 
 @timeit
 def power(arr_nums, p=2):
+    all_numbers = []
+
     for num in arr_nums:
         res = num ** p
 
@@ -23,7 +25,10 @@ def power(arr_nums, p=2):
             print("Квадрат числа", num, "равен:", res)
         else:
             print(num, "в степени", p, "равно:", res)
-    return res
+
+        all_numbers.append(res)
+
+    return all_numbers
 
 
 current_num = power(arr_of_numbers)
@@ -32,7 +37,10 @@ user_power = input("В какую степень хочешь возвести �
 
 int_user_power = int(user_power)
 
-power(arr_of_numbers, int_user_power)
+# power(arr_of_numbers, int_user_power)
+
+print('Функция power возвращает:', power(arr_of_numbers, int_user_power))
+
 
 userswitchnum = input("Выберите четные(ч) или нечётные(н) числа? ")
 
@@ -49,4 +57,27 @@ def return_numbers(numbers, userswitchnum):
 
 
 return_numbers(arr_of_numbers, userswitchnum)
+
+
+def fib(n):
+    fib_list = []
+    fib1, fib2 = 0, 1
+
+    for i in range(n):
+        fib1, fib2 = fib2, fib1 + fib2
+        fib_list.append(fib1)
+    return fib_list
+
+
+res_fib = fib(int(input('Введите количество чисел в списке фибоначи: ')))
+
+print(res_fib)
+
+
+
+
+
+
+
+
 
