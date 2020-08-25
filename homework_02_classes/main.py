@@ -1,3 +1,6 @@
+from ferrari import Ferrari
+
+
 class BaseCars:
     SOUND = 'beep'
     WHEELS = 4
@@ -6,6 +9,9 @@ class BaseCars:
         return self.SOUND
 
 
-# f = Ferrari(fuel_consumption=60)
+f = Ferrari(BaseCars)
 #
-# f.go(30)
+f.__init__(fuel=40)
+f.go(3)
+f.add_fuel(20)
+f.go(3)
