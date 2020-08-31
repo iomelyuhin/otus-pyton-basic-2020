@@ -1,6 +1,3 @@
-from ferrari import Ferrari
-
-
 class BaseCars:
     SOUND = 'beep'
     WHEELS = 4
