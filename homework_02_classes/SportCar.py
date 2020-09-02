@@ -6,15 +6,20 @@ class SportCar(BaseCars):
     CONSUMPTION = 10
     SPEED = 200
 
-    def __init__(self, fuel_add, length):
-        self.fuel_add = fuel_add
-        self.length = length
+    def __init__(self, fuel_add=30):
+        self._fuel_add = fuel_add
 
-    def go(self):
+    @property
+    def fuel_add(self):
+        return self._fuel_add
+
+    def go(self, length):
         power_reserve = ((self.FUEL + self.fuel_add) / self.CONSUMPTION) * 100
-        if self.length > power_reserve:
+        if length > power_reserve:
             print("Не хватает топлива")
-        return print(f'Вы проехали {self.length} километров. До заправли осталось {power_reserve - self.length}')
+            return
+        print(f'Вы проехали {length} километров. До заправли осталось {power_reserve - length}')
 
     def __str__(self):
-        return f'Было заправлено {self.fuel_add} бензина. Проверка сигнала - {self.honk_the_horn()}'
+        res = super().honk_the_horn()
+        return f'Было заправлено {self.fuel_add} бензина. Проверка сигнала - {res}'
