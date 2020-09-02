@@ -1,4 +1,5 @@
 from BaseCars import BaseCars
+from loguru import logger
 
 
 class SportCar(BaseCars):
@@ -16,10 +17,17 @@ class SportCar(BaseCars):
     def go(self, length):
         power_reserve = ((self.FUEL + self.fuel_add) / self.CONSUMPTION) * 100
         if length > power_reserve:
-            print("Не хватает топлива")
+            excess_fuel = (length - power_reserve) / self.CONSUMPTION
+            logger.error("Не хватает топлива, заправьте {} литров", excess_fuel)
             return
-        print(f'Вы проехали {length} километров. До заправли осталось {power_reserve - length}')
+        logger.info('Вы проехали {} километров. До заправли осталось {} километров', length, power_reserve - length)
+
+    def beep(self):
+        hong = super().honk_the_horn()
+        sport_hong = "Бааааааап"
+        res = hong + sport_hong
+        return logger.success('Было заправлено {} бензина. Проверка сигнала - {}', self._fuel_add, res)
 
     def __str__(self):
         res = super().honk_the_horn()
-        return f'Было заправлено {self.fuel_add} бензина. Проверка сигнала - {res}'
+        return logger.info('Было заправлено {} бензина. Проверка сигнала - {}', self.fuel_add, res)

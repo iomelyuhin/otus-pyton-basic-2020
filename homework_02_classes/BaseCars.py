@@ -1,5 +1,5 @@
 class BaseCars:
-    SOUND = 'beep'
+    SOUND = 'Бибииип'
     WHEELS = 4
 
     def honk_the_horn(self):
