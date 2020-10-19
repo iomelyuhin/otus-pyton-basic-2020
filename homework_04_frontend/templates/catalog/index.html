@@ -6,4 +6,11 @@ Catalog index
 
 {% block body %}
     <h1>Hello catalog!!!</h1>
+    <h2>В продаже есть:</h2>
+    <ul>
+        {% for product_id in products %}
+        <li>{{ products[product_id] }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
+
