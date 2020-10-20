@@ -1,16 +1,40 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Catalog index
+Каталог развивающих игрушек
 {% endblock %}
 
 {% block body %}
-    <h1>Hello catalog!!!</h1>
-    <h2>В продаже есть:</h2>
-    <ul>
-        {% for product_id in products %}
-        <li>{{ products[product_id] }}</li>
-        {% endfor %}
-    </ul>
+    <div class="maincontent">
+			<section class="catalog">
+				<div class="catalog__container container">
+					<h1 class="catalog__title">Каталог развивающих игрушек</h1>
+					<div class="catalog__desc">Доставка по всему Миру</div>
+					<ul class="catalog__list">
+						<li class="catalog__item">
+							<h2 class="catalog__subtitle">Развитие моторики</h2>
+							<ul class="catalog__item-products">
+                                {% for i in [1, 2, 3, 4, 5] %}
+								<li class="catalog__item-product">
+									<div class="catalog__item-product-image">
+										<img src="{{ url_for('static', filename='/img/content/page.jpg') }}"
+                                             alt="" class="catalog__item-product-img">
+
+									</div>
+									<div class="catalog__item-product-text">
+										<h3 class="catalog__item-product-title">Развивающая книжка</h3>
+										<div class="catalog__item-product-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, maxime ex labore temporibus sunt.</div>
+										<div class="catalog__item-product-button">
+											<button type="button" class="catalog__item-product--btn cta__buy">В корзину</button>
+										</div>
+									</div>
+								</li>
+                                {% endfor %}
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
 {% endblock %}
 
