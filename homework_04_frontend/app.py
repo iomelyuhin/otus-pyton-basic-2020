@@ -22,7 +22,3 @@ def index():
 def contact():
     return render_template("contact.html")
 
-
-# @app.route("/catalog", methods=["GET", "POST"])
-# def catalog():
-#     return f"<h1>Catalog</h1>"
