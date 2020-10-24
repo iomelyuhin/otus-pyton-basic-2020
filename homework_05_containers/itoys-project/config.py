@@ -1,1 +1,1 @@
-SQLALCHEMY_DATABASE_URI = "psycopg2://user:pass@0.0.0.0.:5432/toys"
+SQLALCHEMY_DATABASE_URI = "postgres+psycopg2://user:pass@localhost:5432/toys"
