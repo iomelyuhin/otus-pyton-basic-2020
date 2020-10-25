@@ -14,18 +14,28 @@
 						<li class="catalog__item">
 							<h2 class="catalog__subtitle">Развитие моторики</h2>
 							<ul class="catalog__item-products">
-                                {% for i in [1, 2, 3, 4, 5] %}
+                                {% for product in products %}
 								<li class="catalog__item-product">
 									<div class="catalog__item-product-image">
-										<img src="{{ url_for('static', filename='/img/content/page.jpg') }}"
+										<img src="{{ url_for('static', filename="img/content"+product.img_href) }}"
                                              alt="" class="catalog__item-product-img">
 
 									</div>
 									<div class="catalog__item-product-text">
-										<h3 class="catalog__item-product-title">Развивающая книжка</h3>
-										<div class="catalog__item-product-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, maxime ex labore temporibus sunt.</div>
+										<h3 class="catalog__item-product-title">{{ product.name }}
+                                        {% if product.is_sale %}
+                                            <span style="color: orangered">   SALE!</span>
+                                        {% endif %}
+                                        </h3>
+										<div class="catalog__item-product-desc">{{ product.description }}</div>
 										<div class="catalog__item-product-button">
-											<button type="button" class="catalog__item-product--btn cta__buy">В корзину</button>
+											<button type="button" class="catalog__item-product--btn cta__buy">Купить за {{ product.price }}р.</button>
+										</div>
+                                        <div class="catalog__item-product-button">
+											<button type="button" data-id="{{ product.id }}" class="delete-product catalog__item-product--btn cta__buy">Удалить</button>
+										</div>
+                                        <div class="catalog__item-product-button">
+											<button type="button" data-id="{{ product.id }}" class="duplicate-product catalog__item-product--btn cta__buy">Дублировать</button>
 										</div>
 									</div>
 								</li>
@@ -37,4 +47,55 @@
 			</section>
 		</div>
 {% endblock %}
+{% block scripts %}
+    <script>
 
+        $(function () {
+            {#const name = $('#product-name')#}
+            {#console.log(name.text())#}
+            {#  console.log("JS activate")#}
+            $('.delete-product').each(function () {
+                $(this).click(function () {
+                    console.log("CLICK DELETE")
+                    console.log("ID = " + Number($(this).attr("data-id")))
+                    $.ajax({
+                        method: 'DELETE',
+                        url: 'catalog/' + (Number($(this).attr("data-id"))),
+                        success: function (res) {
+                            console.log(res)
+                            console.log(res.data)
+                        },
+                        error: function (err) {
+                            console.error(err)
+                        },
+                        complete: function () {
+                            window.location = '{{ url_for('catalog_app.catalog_list') }}'
+                        },
+                    })
+                });
+            });
+
+            $('.duplicate-product').each(function () {
+                $(this).click(function () {
+                    console.log("CLICK Duplicate")
+                    console.log("ID = " + Number($(this).attr("data-id")))
+                    $.ajax({
+                        method: 'POST',
+                        url: 'catalog/' + (Number($(this).attr("data-id"))),
+                        success: function (res) {
+                            console.log(res)
+                            console.log(res.data)
+                        },
+                        error: function (err) {
+                            console.error(err)
+                        },
+                        complete: function () {
+                            {#window.location = '{{ url_for('catalog_app.catalog_list') }}'#}
+                        },
+                    })
+                });
+            });
+
+        });
+    </script>
+{% endblock %}

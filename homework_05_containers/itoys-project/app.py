@@ -1,11 +1,11 @@
 from flask import Flask, request, render_template
-from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 import config
 from views import index_app
 from views import catalog_app
 from views import contact_app
+from models import db
 
 app = Flask(__name__)
 app.register_blueprint(index_app)
@@ -15,7 +15,7 @@ app.config.update(
     SQLALCHEMY_DATABASE_URI=config.SQLALCHEMY_DATABASE_URI,
 )
 
-db = SQLAlchemy(app)
+db.init_app(app)
 migrate = Migrate(app, db)
 
 
