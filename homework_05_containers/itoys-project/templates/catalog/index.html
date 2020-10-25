@@ -34,9 +34,9 @@
                                         <div class="catalog__item-product-button">
 											<button type="button" data-id="{{ product.id }}" class="delete-product catalog__item-product--btn cta__buy">Удалить</button>
 										</div>
-                                        <div class="catalog__item-product-button">
-											<button type="button" data-id="{{ product.id }}" class="duplicate-product catalog__item-product--btn cta__buy">Дублировать</button>
-										</div>
+{#                                        <div class="catalog__item-product-button">#}
+{#											<button type="button" data-id="{{ product.id }}" class="duplicate-product catalog__item-product--btn cta__buy">Дублировать</button>#}
+{#										</div>#}
 									</div>
 								</li>
                                 {% endfor %}
@@ -75,26 +75,26 @@
                 });
             });
 
-            $('.duplicate-product').each(function () {
-                $(this).click(function () {
-                    console.log("CLICK Duplicate")
-                    console.log("ID = " + Number($(this).attr("data-id")))
-                    $.ajax({
-                        method: 'POST',
-                        url: 'catalog/' + (Number($(this).attr("data-id"))),
-                        success: function (res) {
-                            console.log(res)
-                            console.log(res.data)
-                        },
-                        error: function (err) {
-                            console.error(err)
-                        },
-                        complete: function () {
-                            {#window.location = '{{ url_for('catalog_app.catalog_list') }}'#}
-                        },
-                    })
-                });
-            });
+            {#$('.duplicate-product').each(function () {#}
+            {#    $(this).click(function () {#}
+            {#        console.log("CLICK Duplicate")#}
+            {#        console.log("ID = " + Number($(this).attr("data-id")))#}
+            {#        $.ajax({#}
+            {#            method: 'POST',#}
+            {#            url: 'catalog/' + (Number($(this).attr("data-id"))),#}
+            {#            success: function (res) {#}
+            {#                console.log(res)#}
+            {#                console.log(res.data)#}
+            {#            },#}
+            {#            error: function (err) {#}
+            {#                console.error(err)#}
+            {#            },#}
+            {#            complete: function () {#}
+            {#                window.location = '{{ url_for('catalog_app.catalog_list') }}'#}
+            {#            },#}
+            {#        })#}
+            {#    });#}
+            {#});#}
 
         });
     </script>

@@ -12,22 +12,21 @@ PRODUCTS = {
 
 @catalog_app.route("/catalog", methods=["GET", "DELETE"])
 def catalog_list():
-    products = Product.query.filter_by(deleted=False).all()
+    products = Product.query.filter_by(deleted=False).order_by(Product.id).all()
 
     return render_template("catalog/index.html", products=products)
 
 
-@catalog_app.route("/catalog/<int:product_id>", methods=["DELETE"])
-def catalog_delete(product_id=None):
-    products = Product.query.filter_by(deleted=False).all()
-    product = Product.query.filter_by(id=product_id).one_or_none()
-    if request.method == "DELETE":
-        print("Product id = ", product_id)
-        product.deleted = True
-        db.session.commit()
-        return jsonify(ok=True)
-
-    return render_template("catalog/index.html", products=products)
+# @catalog_app.route("/catalog/<int:product_id>", methods=["DELETE"])
+# def catalog_delete(product_id=None):
+#     products = Product.query.filter_by(deleted=False).all()
+#     product = Product.query.filter_by(id=product_id).one_or_none()
+#     if request.method == "DELETE":
+#         product.deleted = True
+#         db.session.commit()
+#         return jsonify(ok=True)
+#
+#     return render_template("catalog/index.html", products=products)
 
 
 @catalog_app.route("/catalog/<int:product_id>", methods=["POST"])

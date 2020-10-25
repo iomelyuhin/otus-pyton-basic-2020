@@ -1,6 +1,18 @@
 version: '3.5'
 
 services:
+  app:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    environment:
+      PG_HOST: pg
+#    volumes:
+#      - ./itoys-project:/app
+    ports:
+      - 5000:5000
+    depends_on:
+      - pg
   pg:
     image: postgres:12
     environment:
