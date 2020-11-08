@@ -37,6 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'big_books_covers',
+    'big_books_pages',
+    'big_books_ready',
+    'cubes',
+    'main',
+    'master_classes',
+    'mini_books',
+    'rodents',
+    'sets',
+    'toys'
 ]
 
 MIDDLEWARE = [
