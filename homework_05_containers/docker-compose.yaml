@@ -7,8 +7,8 @@ services:
       context: .
     environment:
       PG_HOST: pg
-#    volumes:
-#      - ./itoys-project:/app
+    volumes:
+      - .\\itoys-project:/app
     ports:
       - 5000:5000
     depends_on:
@@ -21,6 +21,6 @@ services:
       POSTGRES_PASSWORD: pass
       PGDATA: /temp
     volumes:
-      - .\\data\\pgdata:/var/lib/postgresql/data/pgdata
+      - .\\data\\pgdata:/temp
     ports:
       - 5432:5432
