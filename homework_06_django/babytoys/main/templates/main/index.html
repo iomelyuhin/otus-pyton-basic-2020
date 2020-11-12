@@ -1,10 +1,59 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>MAIN</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
 </head>
 <body>
-    <h1>hello world</h1>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container ">
+                <a class="navbar-brand" href="#">iToys</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarNavDropdown">
+                    <ul class="navbar-nav d-flex flex-column flex-md-row justify-content-between" style="width: 100%">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Главная <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Магазин
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Развивающие книжки 21*21см</a>
+                                <a class="dropdown-item" href="#">Развивающие книжки 21*21см (Обложки)</a>
+                                <a class="dropdown-item" href="#">Развивающие книжки 21*21см (Странички)</a>
+                                <a class="dropdown-item" href="#">Развивающие книжки 13*13см</a>
+                                <a class="dropdown-item" href="#">Развивающие кубики</a>
+                                <a class="dropdown-item" href="#">Игрушки</a>
+                                <a class="dropdown-item" href="#">Грызунки</a>
+                                <a class="dropdown-item" href="#">Наборы</a>
+                                <a class="dropdown-item" href="#">Выкройки и мастерклассы</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Контакты <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item float-right">
+                            <a class="nav-link" href="#">Корзина (товаров 0) <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                  </div>
+            </div>
+        </nav>
+    </header>
+    <footer>
+        <div>
+            iToys, Все права защищены
+        </div>
+    </footer>
 </body>
 </html>
