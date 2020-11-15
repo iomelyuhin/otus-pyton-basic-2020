@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+    Список товаров
+{% endblock %}
+{% block main %}
+    <section class="goods-list">
+        <div class="container-fluid">
+            <ul class="goods-list__list">
+                {% for good in goods_list %}
+                <li class="goods-list__item">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-img-top-wrap">
+                            <img class="card-img-top" src="{{ good.image.url }}" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ good.title }}</h5>
+                            <p class="card-text">{{ good.description }}</p>
+                            <a href="#" class="btn btn-primary">Подробнее</a>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+{% endblock %}

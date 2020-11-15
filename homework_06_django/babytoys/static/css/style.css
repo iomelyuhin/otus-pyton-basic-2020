@@ -1,0 +1,73 @@
+a.logo.navbar-brand {
+    color: #fff;
+    font-size: 30px;
+}
+
+.collapse.navbar-collapse  a.nav-link.dropdown-toggle {
+    color: #fff;
+}
+
+.hero {
+    min-height: 80vh;
+    background: url('/static/img/content/hero-bg.jpg') center center no-repeat;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
+
+.copy {
+    color: #fff;
+    text-align: center;
+}
+
+.hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+
+}
+
+.hero__content h1 {
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.hero__desc {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.goods-list {
+    margin-top: 50px;
+    min-height: 90vh;
+}
+
+.goods-list__list {
+    display: flex;
+}
+
+.goods-list__item {
+    margin-right: 20px;
+}
+
+.card-img-top-wrap {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img-top {
+    min-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -37,16 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'big_books_covers',
-    'big_books_pages',
-    'big_books_ready',
-    'cubes',
     'main',
-    'master_classes',
-    'mini_books',
-    'rodents',
-    'sets',
-    'toys'
+    'toy',
 ]
 
 MIDDLEWARE = [
@@ -64,7 +56,7 @@ ROOT_URLCONF = 'babytoys.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,7 +78,7 @@ WSGI_APPLICATION = 'babytoys.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'db.sqlite3',
     }
 }
 
