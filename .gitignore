@@ -2,3 +2,5 @@
 venv
 */venv
 */.idea
+*/settings_local.py
+*/*.sqlite3
