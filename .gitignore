@@ -2,5 +2,5 @@
 venv
 */venv
 */.idea
-*/settings_local.py
-*/*.sqlite3
+homework_06_django/babytoys/babytoys/settings_local.py
+homework_06_django/babytoys/db.sqlite3
