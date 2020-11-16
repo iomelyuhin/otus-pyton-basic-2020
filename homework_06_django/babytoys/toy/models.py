@@ -30,6 +30,7 @@ class Card(models.Model):
     image = models.ImageField(upload_to='goods', blank=True, null=True)
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
+    price = models.DecimalField(max_digits=64, decimal_places=2, default=1000)
 
     def __str__(self):
         return self.title

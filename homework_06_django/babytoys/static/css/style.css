@@ -71,3 +71,24 @@ ul {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.detail__card {
+    display: flex;
+}
+
+.detail {
+    min-height: 80vh;
+}
+
+.card-content {
+    margin-left: 30px;
+    max-width: 300px;
+}
+
+.detail__image {
+    width: 300px;
+}
+
+.detail__img {
+    max-width: 100%;
+}
