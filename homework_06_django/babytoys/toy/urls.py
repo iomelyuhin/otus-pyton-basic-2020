@@ -6,7 +6,6 @@ app_name = 'toy'
 
 
 urlpatterns = [
-    # path('', include())
     path('mini/', MiniBooksListView.as_view(), name='mini-books'),
     path('big-covers/', BigBooksCoversListView.as_view(), name='big-books-covers'),
     path('big-pages/', BigBooksPagesListView.as_view(), name='big-books-pages'),

@@ -29,11 +29,3 @@ class BigBooksFullListView(ListView):
     context_object_name = 'goods_list'
     template_name = 'list.html'
     queryset = Card.objects.filter(element_id=3).all()
-
-
-# class ImagesListView(ListView):
-#     model = Images
-#     context_object_name = 'goods_images_list'
-#     template_name = 'list.html'
-
-# Create your views here.
