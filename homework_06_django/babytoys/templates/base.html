@@ -27,13 +27,17 @@
                                   Магазин
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <div class="dropdown-item">
-                                        <div class="title">Книжки 21*21см</div>
-                                        <a href="{% url 'toy:big-books-full' %}" style="display:flex; padding-left: 10px">- Готовые</a>
-                                        <a href="{% url 'toy:big-books-covers' %}" style="display:flex; padding-left: 10px">- Обложки</a>
-                                        <a href="{% url 'toy:big-books-pages' %}" style="display:flex; padding-left: 10px">- Странички</a>
-                                    </div>
-                                    <a class="dropdown-item" href="{% url 'toy:mini-books' %}">Книжки 13*13см</a>
+                                    {% for cat in categories %}
+                                        <div class="dropdown-item">
+                                            <a class="title" href="{% url 'toys:category' cat.id %}">{{ cat.name }}</a>
+                                            {% for el in elements %}
+                                                {% if el.category_id == cat.id %}
+                                                    <a href="/toys/{{ el.url }}" style="display:flex; padding-left: 10px">-
+                                                        {{ el.name }}</a>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
                                 </div>
                             </li>
                         </ul>

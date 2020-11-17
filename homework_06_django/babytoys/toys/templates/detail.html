@@ -9,15 +9,7 @@
             <div class="card">
                 <div class="card-header">
                     <h1>{{ good_item.title }}</h1>
-                    {% if good_item.category_id == 1 and good_item.element_id == 1 %}
-                    <a href="{% url 'toy:big-books-covers' %}" class="btn btn-info">Назад</a>
-                    {% elif  good_item.category_id == 1 and good_item.element_id == 2 %}
-                    <a href="{% url 'toy:big-books-pages' %}" class="btn btn-info">Назад</a>
-                    {% elif  good_item.category_id == 1 and good_item.element_id == 3 %}
-                    <a href="{% url 'toy:big-books-full' %}" class="btn btn-info">Назад</a>
-                    {% elif  good_item.category_id == 2 %}
-                    <a href="{% url 'toy:mini-books' %}" class="btn btn-info">Назад</a>
-                    {% endif %}
+                    <a href="{% url 'toys:category' good_item.category_id %}" class="btn btn-info">Назад</a>
                 </div>
                 <div class="card-body detail__card">
                     <div class="detail__image">
