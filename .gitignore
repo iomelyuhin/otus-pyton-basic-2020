@@ -4,3 +4,4 @@ venv
 */.idea
 homework_06_django/babytoys/babytoys/settings_local.py
 *.sqlite3
+*/__pycache__
