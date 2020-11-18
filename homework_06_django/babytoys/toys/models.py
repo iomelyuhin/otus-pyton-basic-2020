@@ -32,5 +32,3 @@ class Images(models.Model):
 
     def __str__(self):
         return f'{self.card} - {self.image}'
-
-
