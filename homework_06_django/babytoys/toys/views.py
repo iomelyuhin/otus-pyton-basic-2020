@@ -9,7 +9,7 @@ class CategoryDetailView(Menu, AllGoods, DetailView):
     template_name = 'list.html'
 
 
-class GoodDetailView(Menu, AllCategories, DetailView):
+class GoodDetailView(Menu, DetailView):
     model = Card
     template_name = 'detail.html'
     context_object_name = 'good_item'
